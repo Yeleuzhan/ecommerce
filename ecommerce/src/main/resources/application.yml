@@ -1,0 +1,58 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/perfume
+    username: postgres
+    password: root
+
+  jpa:
+    generate-ddl: true
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
+  mail:
+    host: smtp.gmail.com
+    username: #gmail
+    password: #gmail password, some configurations are needed(two factor authentication and etc.)
+    port: 465
+    protocol: smtps
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: #client_id
+            client-secret: #client_secret
+            redirectUri: "{baseUrl}/oauth2/callback/{registrationId}"
+            scope:
+              - email
+              - profile
+          github:
+            clientId: #client_id
+            clientSecret: #client_secret
+            redirectUri: "{baseUrl}/oauth2/callback/{registrationId}"
+            scope:
+              - read:user
+              - user:email
+
+mail:
+  debug: false
+
+
+recaptcha:
+  secret: #recaptcha secret from Google Console API
+  url: https://www.google.com/recaptcha/api/siteverify?secret=%s&response=%s
+
+hostname: localhost:4200
+
+jwt:
+  header: Authorization
+  secret: dejavu
+  expiration: 1800000
