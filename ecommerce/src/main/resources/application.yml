@@ -12,8 +12,8 @@ spring:
 
   mail:
     host: smtp.gmail.com
-    username: #gmail
-    password: #gmail password, some configurations are needed(two factor authentication and etc.)
+    username: #data
+    password: #data
     port: 465
     protocol: smtps
     properties:
@@ -28,15 +28,15 @@ spring:
       client:
         registration:
           google:
-            client-id: #client_id
-            client-secret: #client_secret
+            client-id: #data
+            client-secret: #data
             redirectUri: "{baseUrl}/oauth2/callback/{registrationId}"
             scope:
               - email
               - profile
           github:
-            clientId: #client_id
-            clientSecret: #client_secret
+            clientId: #data
+            clientSecret: #data
             redirectUri: "{baseUrl}/oauth2/callback/{registrationId}"
             scope:
               - read:user
@@ -47,7 +47,7 @@ mail:
 
 
 recaptcha:
-  secret: #recaptcha secret from Google Console API
+  secret: #data
   url: https://www.google.com/recaptcha/api/siteverify?secret=%s&response=%s
 
 hostname: localhost:4200
