@@ -1,5 +1,7 @@
 package kz.ecommerce.domain;
 
+import kz.ecommerce.domain.enums.AuthProvider;
+import kz.ecommerce.domain.enums.Role;
 import lombok.Data;
 
 import javax.persistence.*;

@@ -1,6 +1,6 @@
 package kz.ecommerce.security.oauth2;
 
-import kz.ecommerce.domain.AuthProvider;
+import kz.ecommerce.domain.enums.AuthProvider;
 import lombok.SneakyThrows;
 import org.apache.tomcat.websocket.AuthenticationException;
 

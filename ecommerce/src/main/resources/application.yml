@@ -55,4 +55,4 @@ hostname: localhost:4200
 jwt:
   header: Authorization
   secret: dejavu
-  expiration: 1800000
+  expiration: 3600000

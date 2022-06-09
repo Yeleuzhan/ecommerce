@@ -53,6 +53,7 @@ public class JwtProvider {
                 .setExpiration(validity)
                 .signWith(SignatureAlgorithm.HS256, secretKey)
                 .compact();
+
     }
 
     public boolean validateToken(String token) throws JwtAuthenticationException {
@@ -70,7 +71,11 @@ public class JwtProvider {
     }
 
     public String resolveToken(HttpServletRequest request) {
-        return request.getHeader(authorizationHeader);
+        String bearerToken = request.getHeader(authorizationHeader);
+        if (bearerToken != null) {
+            bearerToken = bearerToken.substring("Beare ".length());
+        }
+        return bearerToken;
     }
 
     private String getUsername(String token) {

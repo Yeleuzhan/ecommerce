@@ -1,6 +1,6 @@
 package kz.ecommerce.dto.user;
 
-import kz.ecommerce.domain.Role;
+import kz.ecommerce.domain.enums.Role;
 import lombok.Data;
 
 import java.util.Set;

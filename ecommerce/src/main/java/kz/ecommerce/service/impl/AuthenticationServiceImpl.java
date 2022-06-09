@@ -1,7 +1,7 @@
 package kz.ecommerce.service.impl;
 
-import kz.ecommerce.domain.AuthProvider;
-import kz.ecommerce.domain.Role;
+import kz.ecommerce.domain.enums.AuthProvider;
+import kz.ecommerce.domain.enums.Role;
 import kz.ecommerce.domain.User;
 import kz.ecommerce.dto.CaptchaResponse;
 import kz.ecommerce.exception.ApiRequestException;
@@ -13,12 +13,9 @@ import kz.ecommerce.security.JwtProvider;
 import kz.ecommerce.security.oauth2.OAuth2UserInfo;
 import kz.ecommerce.service.AuthenticationService;
 import kz.ecommerce.service.email.MailSender;
-import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Lazy;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

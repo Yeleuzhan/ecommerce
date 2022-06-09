@@ -1,4 +1,4 @@
-package kz.ecommerce.domain;
+package kz.ecommerce.domain.enums;
 
 public enum Role {
 
