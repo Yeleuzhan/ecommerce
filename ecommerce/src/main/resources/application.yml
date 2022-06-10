@@ -12,8 +12,8 @@ spring:
 
   mail:
     host: smtp.gmail.com
-    username: #data
-    password: #data
+    username: eeleu44@gmail.com
+    password: dyeulhjokrgbzjin
     port: 465
     protocol: smtps
     properties:
@@ -28,15 +28,15 @@ spring:
       client:
         registration:
           google:
-            client-id: #data
-            client-secret: #data
+            client-id: 615660542975-d8l8ssra58emh139orl2bl50hm6utsg0.apps.googleusercontent.com
+            client-secret: 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
             redirectUri: "{baseUrl}/oauth2/callback/{registrationId}"
             scope:
               - email
               - profile
           github:
-            clientId: #data
-            clientSecret: #data
+            clientId: c58275a0f2d5d563db8f
+            clientSecret: 47581aef6e3c9796e146e3a870d6b678b6853aad
             redirectUri: "{baseUrl}/oauth2/callback/{registrationId}"
             scope:
               - read:user
@@ -47,7 +47,7 @@ mail:
 
 
 recaptcha:
-  secret: #data
+  secret: 6LcLLVQgAAAAAOjBcLcxlEpLEysLsjBMzIGxHEU6
   url: https://www.google.com/recaptcha/api/siteverify?secret=%s&response=%s
 
 hostname: localhost:4200

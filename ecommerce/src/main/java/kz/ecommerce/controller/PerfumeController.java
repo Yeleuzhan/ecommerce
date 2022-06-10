@@ -3,6 +3,7 @@ package kz.ecommerce.controller;
 import kz.ecommerce.domain.Perfume;
 import kz.ecommerce.dto.perfume.FullPerfumeResponse;
 import kz.ecommerce.dto.perfume.PerfumeResponse;
+import kz.ecommerce.dto.perfume.PerfumeSearchRequest;
 import kz.ecommerce.mapper.PerfumeMapper;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -32,6 +33,11 @@ public class PerfumeController {
     @PostMapping("/ids")
     public ResponseEntity<List<PerfumeResponse>> getPerfumesByIds(@RequestBody List<Long> perfumeIds) {
         return ResponseEntity.ok(perfumeMapper.getPerfumesByIds(perfumeIds));
+    }
+
+    @PostMapping("/search")
+    public ResponseEntity<List<PerfumeResponse>> findPerfumesByFilterParams(@RequestBody PerfumeSearchRequest filter) {
+        return ResponseEntity.ok(perfumeMapper.findPerfumesByFilterParams(filter));
     }
 
 }

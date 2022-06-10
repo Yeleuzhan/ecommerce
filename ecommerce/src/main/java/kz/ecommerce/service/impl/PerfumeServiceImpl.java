@@ -33,4 +33,9 @@ public class PerfumeServiceImpl implements PerfumeService {
     public List<Perfume> getPerfumesByIds(List<Long> perfumesId) {
         return perfumeRepository.findByIdIn(perfumesId);
     }
+
+    @Override
+    public List<Perfume> findPerfumesByFilterParams(List<String> perfumers, List<String> genders, List<Integer> prices, boolean sortByPrice) {
+        return perfumeRepository.findPerfumesByFilterParams(perfumers, genders, prices.get(0), prices.get(1), sortByPrice);
+    }
 }

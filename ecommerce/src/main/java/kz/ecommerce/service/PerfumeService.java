@@ -12,4 +12,6 @@ public interface PerfumeService {
 
     List<Perfume> getPerfumesByIds(List<Long> perfumesId);
 
+    List<Perfume> findPerfumesByFilterParams(List<String> perfumers, List<String> genders, List<Integer> prices, boolean sortByPrice);
+
 }

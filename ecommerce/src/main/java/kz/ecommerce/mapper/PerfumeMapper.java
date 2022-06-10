@@ -1,7 +1,9 @@
 package kz.ecommerce.mapper;
 
+import kz.ecommerce.domain.Perfume;
 import kz.ecommerce.dto.perfume.FullPerfumeResponse;
 import kz.ecommerce.dto.perfume.PerfumeResponse;
+import kz.ecommerce.dto.perfume.PerfumeSearchRequest;
 import kz.ecommerce.service.PerfumeService;
 import org.springframework.stereotype.Component;
 
@@ -28,6 +30,16 @@ public class PerfumeMapper {
 
     public List<PerfumeResponse> getPerfumesByIds(List<Long> perfumesId) {
         return commonMapper.convertToResponseList(perfumeService.getPerfumesByIds(perfumesId), PerfumeResponse.class);
+    }
+
+    public List<PerfumeResponse> findPerfumesByFilterParams(PerfumeSearchRequest filter) {
+        List<Perfume> perfumeList = perfumeService.findPerfumesByFilterParams(
+                filter.getPerfumers(),
+                filter.getGenders(),
+                filter.getPrices(),
+                filter.isSortByPrice()
+        );
+        return commonMapper.convertToResponseList(perfumeList, PerfumeResponse.class);
     }
 
 }
