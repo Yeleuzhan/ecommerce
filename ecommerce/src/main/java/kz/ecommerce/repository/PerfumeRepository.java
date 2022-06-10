@@ -15,8 +15,8 @@ public interface PerfumeRepository extends JpaRepository<Perfume, Long> {
     List<Perfume> findByIdIn(List<Long> perfumeIds);
 
     @Query("SELECT perfume FROM Perfume perfume " +
-            "WHERE (:perfumers IS NULL OR perfume.perfumer IN :perfumers) " +
-            "AND (:genders IS NULL OR perfume.perfumeGender IN :genders) " +
+            "WHERE ((:perfumers) IS NULL OR perfume.perfumer IN (:perfumers)) " +
+            "AND ((:genders) IS NULL OR perfume.perfumeGender IN (:genders)) " +
             "AND (:priceStart IS NULL OR perfume.price BETWEEN :priceStart AND :priceEnd) " +
             "ORDER BY CASE WHEN :sortByPrice = true THEN perfume.price ELSE -perfume.price END ASC")
     List<Perfume> findPerfumesByFilterParams(
@@ -26,5 +26,9 @@ public interface PerfumeRepository extends JpaRepository<Perfume, Long> {
             Integer priceEnd,
             boolean sortByPrice
     );
+
+    List<Perfume> findByPerfumeGenderOrderByPriceDesc(String perfumeGender);
+
+    List<Perfume> findByPerfumerOrderByPriceDesc(String perfumer);
 
 }

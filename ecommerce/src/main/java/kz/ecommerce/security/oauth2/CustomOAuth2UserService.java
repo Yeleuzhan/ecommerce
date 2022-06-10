@@ -1,6 +1,7 @@
 package kz.ecommerce.security.oauth2;
 
 import kz.ecommerce.domain.User;
+import kz.ecommerce.exception.ApiRequestException;
 import kz.ecommerce.security.UserPrincipal;
 import kz.ecommerce.service.AuthenticationService;
 import kz.ecommerce.service.UserService;
@@ -29,13 +30,13 @@ public class CustomOAuth2UserService extends DefaultOAuth2UserService {
         String provider = userRequest.getClientRegistration().getRegistrationId();
         OAuth2User oAuth2User = super.loadUser(userRequest);
         OAuth2UserInfo oAuth2UserInfo = OAuth2UserFactory.getOAuth2UserInfo(provider, oAuth2User.getAttributes());
-        Optional<User> optionalUser = userService.getUserInfo(oAuth2UserInfo.getEmail());
 
         User user = new User();
-        if (optionalUser.isEmpty()) {
-            user = authenticationService.registerOAuth2User(provider, oAuth2UserInfo);
-        } else {
+        try {
+            userService.getUserInfo(oAuth2UserInfo.getEmail());
             user = authenticationService.updateOAuth2User(provider, oAuth2UserInfo);
+        } catch (ApiRequestException exception){
+            user = authenticationService.registerOAuth2User(provider, oAuth2UserInfo);
         }
         return UserPrincipal.create(user, oAuth2User.getAttributes());
     }

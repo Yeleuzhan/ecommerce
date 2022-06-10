@@ -40,4 +40,14 @@ public class PerfumeController {
         return ResponseEntity.ok(perfumeMapper.findPerfumesByFilterParams(filter));
     }
 
+    @PostMapping("/search/gender")
+    public ResponseEntity<List<PerfumeResponse>> findByPerfumeGender(@RequestBody PerfumeSearchRequest filter) {
+        return ResponseEntity.ok(perfumeMapper.findByPerfumeGender(filter.getPerfumeGender()));
+    }
+
+    @PostMapping("/search/perfumer")
+    public ResponseEntity<List<PerfumeResponse>> findByPerfumer(@RequestBody PerfumeSearchRequest filter) {
+        return ResponseEntity.ok(perfumeMapper.findByPerfumer(filter.getPerfumer()));
+    }
+
 }

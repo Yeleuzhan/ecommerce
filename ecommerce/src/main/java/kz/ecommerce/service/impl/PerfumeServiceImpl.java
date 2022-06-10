@@ -38,4 +38,14 @@ public class PerfumeServiceImpl implements PerfumeService {
     public List<Perfume> findPerfumesByFilterParams(List<String> perfumers, List<String> genders, List<Integer> prices, boolean sortByPrice) {
         return perfumeRepository.findPerfumesByFilterParams(perfumers, genders, prices.get(0), prices.get(1), sortByPrice);
     }
+
+    @Override
+    public List<Perfume> findByPerfumeGender(String perfumeGender) {
+        return perfumeRepository.findByPerfumeGenderOrderByPriceDesc(perfumeGender);
+    }
+
+    @Override
+    public List<Perfume> findByPerfumer(String perfumer) {
+        return perfumeRepository.findByPerfumerOrderByPriceDesc(perfumer);
+    }
 }

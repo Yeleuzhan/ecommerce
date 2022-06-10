@@ -42,4 +42,12 @@ public class PerfumeMapper {
         return commonMapper.convertToResponseList(perfumeList, PerfumeResponse.class);
     }
 
+    public List<PerfumeResponse> findByPerfumeGender(String perfumeGender) {
+        return commonMapper.convertToResponseList(perfumeService.findByPerfumeGender(perfumeGender), PerfumeResponse.class);
+    }
+
+    public List<PerfumeResponse> findByPerfumer(String perfumer) {
+        return commonMapper.convertToResponseList(perfumeService.findByPerfumer(perfumer), PerfumeResponse.class);
+    }
+
 }
