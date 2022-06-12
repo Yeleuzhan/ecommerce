@@ -1,0 +1,13 @@
+{
+  "perfumeTitle": "perfume_1",
+  "perfumer": "perfumer_1",
+  "year": 2000,
+  "country": "Kazakhstan",
+  "perfumeGender": "female",
+  "fragranceTopNotes": "top_1",
+  "fragranceMiddleNotes": "top_2",
+  "fragranceBaseNotes": "top_3",
+  "price": 99,
+  "volume": "20",
+  "type": "type_1"
+}

@@ -39,10 +39,15 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .authorizeRequests()
-                .antMatchers("/api/v1/registration/**",
-                        "/api/v1/auth/**",
-                        "/auth/**",
-                        "/oauth2/**").permitAll()
+                .antMatchers("/api/v1/auth/**",
+                        "/api/v1/registration/**",
+                        "/api/v1/perfumes/**",
+                        "/api/v1/users/cart",
+                        "/api/v1/users/order/**",
+                        "/api/v1/users/review",
+                        "/websocket", "/websocket/**",
+                        "/img/**",
+                        "/static/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .oauth2Login()

@@ -16,7 +16,6 @@ public class Perfume {
     @SequenceGenerator(name = "perfume_id_seq", sequenceName = "perfume_id_seq", initialValue = 109, allocationSize = 1)
     private Long id;
 
-    @Column(name = "perfume_title")
     private String perfumeTitle;
 
     private String perfumer;
@@ -25,17 +24,13 @@ public class Perfume {
 
     private String country;
 
-    @Column(name = "perfume_gender")
     private String perfumeGender;
 
-    @Column(name = "fragrance_top_notes")
-    private String fraqranceTopNotes;
+    private String fragranceTopNotes;
 
-    @Column(name = "fragrance_middle_notes")
-    private String fraqranceMiddleNotes;
+    private String fragranceMiddleNotes;
 
-    @Column(name = "fragrance_base_notes")
-    private String fraqranceBaseNotes;
+    private String fragranceBaseNotes;
 
     private String description;
 
